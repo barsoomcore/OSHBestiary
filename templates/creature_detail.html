@@ -1,0 +1,27 @@
+<h1>{{object.name}}</h1>
+<h6>Created by: {{object.owner}}</h6>
+<p>Armor Class: {{object.AC}}</p>
+<p>Hit Points: {{object.hit_points}}</p>
+{% if weapon %}<p>Weapon Type: {{object.weapon}}</p>{% endif %}
+<p>{{object.description}}</p>
+<ul>
+	{% if object.brawn %}<li>Brawn: {{object.brawn}}</li>{% endif %}
+	{% if object.cunning %}<li>Cunning: {{object.cunning}}</li>{% endif %}
+	{% if object.daring %}<li>Daring: {{object.daring}}</li>{% endif %}
+	{% if object.commitment %}<li>Commitment: {{object.commitment}}</li>{% endif %}
+	{% if object.charm %}<li>Charm: {{object.charm}}</li>{% endif %}
+	{% if object.awareness %}<li>Awareness: {{object.awareness}}</li>{% endif %}
+</ul>
+
+{% if object.powers.all %}
+	<h2>Powers:</h2>
+	{% for power in object.powers.all %}
+		<h3>{{power.name}} 
+		{% if power.type %}
+			:: {{power.type}}{% endif %}
+		{% if power.focus %}
+			:: Focused
+		{% endif %}</h3>
+		<p>{{power.description}}</p>
+	{% endfor %}
+{% endif %}
