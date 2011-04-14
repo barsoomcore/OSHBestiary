@@ -56,7 +56,7 @@
 	}
 }, 
 {"pk": 5, "model": "oshbestiary.power", "fields": {
-	"name": "Gentlemen's Intellect"
+	"name": "Gentlemen's Intellect", 
 	"description": "The Gorilla King is a surprisingly knowledgable fellow and will know a single important fact about any topic the players might ask it. This can relate to unknown secrets or places or persons, forgotten lore, and any other adventure aiding topic the players inquire about.", 
 	"type": "Constant", 
 	"focused": false, 
