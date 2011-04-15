@@ -1,1 +1,22 @@
-<p>Hello Beasts</p>
+<html>
+<head>
+	<title>OLD SCHOOL HACK BESTIARY</title>
+</head>
+<body>
+
+<h1>The OLD SCHOOL HACK BESTIARY</h1>
+
+<p>There's a chance this will turn into a whole thing. You can readily get access to create new and exciting creatures just by emailing 'barsoomcore' (hint: he lives at GMail) (he also hangs out at <a href="http://forums.oldschoolhack.net">Old School Hack forums</a>.</p>
+
+<h2>The Creatures</h2>
+
+<p>With any luck, this list will get really long and I'll have to do something about that.</p>
+
+<ul>
+	{% for creature in creature_list %}
+		<li><strong><a href="{{creature.get_absolute_url}}">{{creature.name}}</a></strong></li>
+	{% endfor %}
+</ul>
+
+</body>
+</html>
