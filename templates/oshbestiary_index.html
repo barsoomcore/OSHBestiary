@@ -1,22 +1,30 @@
-<html>
-<head>
-	<title>OLD SCHOOL HACK BESTIARY</title>
-</head>
-<body>
+{% extends "templates/oshbestiary_base.html" %}
 
-<h1>The OLD SCHOOL HACK BESTIARY</h1>
+{% block title %}Home{% endblock %}
 
-<p>There's a chance this will turn into a whole thing. You can readily get access to create new and exciting creatures just by emailing 'barsoomcore' (hint: he lives at GMail) (he also hangs out at <a href="http://forums.oldschoolhack.net">Old School Hack forums</a>.</p>
+{% block blurb %}
+	<p>Beasties, Monsters, and Bad Guys of all descriptions!</p>
+{% endblock %}
 
-<h2>The Creatures</h2>
-
-<p>With any luck, this list will get really long and I'll have to do something about that.</p>
-
-<ul>
-	{% for creature in creature_list %}
-		<li><strong><a href="{{creature.get_absolute_url}}">{{creature.name}}</a></strong></li>
-	{% endfor %}
-</ul>
-
-</body>
-</html>
+{% block content %}
+	<h1>The OLD SCHOOL HACK BESTIARY</h1>
+	
+	<p>An uber-convenient place to find inspiration, share awesomeness, or just grab something you can build tonight's game around. All these creatures/monsters/bad guys will work just fine in your own Old School Hack game!</p>
+	
+	<p>Promise.</p>
+	
+	<p>There's a chance this will turn into a whole thing. You can readily get access to create new and exciting creatures just by emailing 'barsoomcore' (hint: he lives at GMail) (he also hangs out at <a href="http://forums.oldschoolhack.net">Old School Hack forums</a>.</p>
+	
+	
+{% endblock %}
+{% block sidebar %}
+	<h2>The Creatures</h2>
+	
+	<p>With any luck, this list will get really long and I'll have to do something about that.</p>
+	
+	<ul>
+		{% for creature in creature_list %}
+			<li><strong><a href="{{creature.get_absolute_url}}">{{creature.name}}</a></strong></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

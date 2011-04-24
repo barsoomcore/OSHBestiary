@@ -1,27 +1,66 @@
-<h1>{{object.name}}</h1>
-<h6>Created by: {{object.owner}}</h6>
-<p>Armor Class: {{object.AC}}</p>
-<p>Hit Points: {{object.hit_points}}</p>
-{% if weapon %}<p>Weapon Type: {{object.weapon}}</p>{% endif %}
-<p>{{object.description}}</p>
-<ul>
-	{% if object.brawn %}<li>Brawn: {{object.brawn}}</li>{% endif %}
-	{% if object.cunning %}<li>Cunning: {{object.cunning}}</li>{% endif %}
-	{% if object.daring %}<li>Daring: {{object.daring}}</li>{% endif %}
-	{% if object.commitment %}<li>Commitment: {{object.commitment}}</li>{% endif %}
-	{% if object.charm %}<li>Charm: {{object.charm}}</li>{% endif %}
-	{% if object.awareness %}<li>Awareness: {{object.awareness}}</li>{% endif %}
-</ul>
+{% extends "templates/oshbestiary_base.html" %}
+{% load taggingextras %}
+{% load tagging_tags %}
+{% block title %}  {{ object.name }} {% endblock %}
+{% block content %}
+	<style>
+		.attributes {float:left; margin-right:100px}
+		.attributes li {
+			background: url({{ MEDIA_URL}}images/OSHAttributeShield.png) no-repeat;
+			padding: 25px 0 20px 0;
+			list-style-type:none;
+			font-weight: bold;
+			font-size: 150%
+		}
+		.attributes li .value {font-size:24pt; margin:0 50px 0 28px}
+		#left-stat-block {
+			margin-top: 50px;
+		}
+		#sidebar-image {
+			margin-top: 25px;
+			max-width: 225px;
+		}
+	</style>
+	<h1>{{object.name}}</h1>
+	<h6>Created by: {{object.owner}}</h6>
+	<p>{{object.description}}</p>
+	<ul class="attributes">
+		{% if object.brawn %}<li><span class="value">{{object.brawn}}</span> Brawn</li>{% endif %}
+		{% if object.cunning %}<li><span class="value">{{object.cunning}}</span>Cunning</li>{% endif %}
+		{% if object.daring %}<li><span class="value">{{object.daring}}</span>Daring</li>{% endif %}
+		{% if object.commitment %}<li><span class="value">{{object.commitment}}</span>Commitment</li>{% endif %}
+		{% if object.charm %}<li><span class="value">{{object.charm}}</span>Charm</li>{% endif %}
+		{% if object.awareness %}<li><span class="value">{{object.awareness}}</span>Awareness</li>{% endif %}
+	</ul>
+	
+	<div id="left-stat-block">
+		<h2>Armor Class: {{object.AC}}</h2>
+		<h2>Hit Points: {{object.hit_points}}</h2>
+		{% if object.weapon %}<h2>Weapon Type: {{object.weapon}}</h2>{% endif %}
+	</div>
+	
+	{% if object.powers.all %}
+		<h2 style="clear:left">Powers:</h2>
+		{% for power in object.powers.all %}
+			<h3>{{power.name}} 
+			{% if power.type %}
+				:: {{power.type}}{% endif %}
+			{% if power.focus %}
+				:: Focused
+			{% endif %}</h3>
+			<p>{{power.description}}</p>
+		{% endfor %}
+	{% endif %}
+{% endblock %}
 
-{% if object.powers.all %}
-	<h2>Powers:</h2>
-	{% for power in object.powers.all %}
-		<h3>{{power.name}} 
-		{% if power.type %}
-			:: {{power.type}}{% endif %}
-		{% if power.focus %}
-			:: Focused
-		{% endif %}</h3>
-		<p>{{power.description}}</p>
-	{% endfor %}
-{% endif %}
+{% block sidebar %}
+	{% if object.image %}
+		<img src="{{ object.image }}" id="sidebar-image" />
+	{% endif %}
+	<h3>Tags for {{ object.name }}:</h3>
+	{% tags_for_object object as tags %}
+	<p>{% for tag in tags %}
+		<a href="{% url osh-by-tag tag %}">{{ tag }}</a>
+	{% endfor %}</p>
+	<h4><a href="{% url osh-index %}">Back to the Bestiary Index</a></h4>
+{% endblock %}

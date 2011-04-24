@@ -66,12 +66,14 @@ class Creature(models.Model):
 		blank=True
 	)
 	
+	image = models.URLField(blank=True)
+	
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
 	
 	@permalink
 	def get_absolute_url(self):
-		return('creature-detail', (), {'slug': self.slug})
+		return('osh-creature-detail', (), {'slug': self.slug})
 	
 	def __unicode__(self):
 		return u'%s' % (self.name)

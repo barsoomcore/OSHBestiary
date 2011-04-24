@@ -1,0 +1,38 @@
+{% load tagging_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>Old School Hack Bestiary: {% block title %}{% endblock %}</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="http://www.oldschoolhack.net/wp-content/themes/clean-home/style.css" />
+		<link rel="icon" type="image/png" href="{{ MEDIA_URL }}osh_favicon.png" />
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+			<div id="logo">
+				<a href="http://www.oldschoolhack.net">
+					<img src="{{ MEDIA_URL }}banners/OSH_WebTitle.png" style="padding-top:5px">
+				</a>
+			</div>
+			</div>
+			{% if blurb %}
+				<div id="blurb">
+					{% block blurb %}{% endblock %}
+				</div>
+			{% endif %}
+			<div id="content">
+			{% block content %}{% endblock %}
+			</div>
+			<div id="sidebar">
+			{% block sidebar %}{% endblock %}
+			</div>
+			<div id="footer">
+				<p>All creatures posted on this site are released under the <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution Non-Commercial License</a>.<br />The images are NOT, however, and are linked from other sites around the nets. If you object to an image appearing here, let me know.</p>
+				<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/" style="border:none">
+					<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" />
+				</a>
+			</div>
+		</div>
+	</body>
+</html>

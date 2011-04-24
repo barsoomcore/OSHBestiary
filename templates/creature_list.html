@@ -1,0 +1,12 @@
+{% extends "templates/oshbestiary_base.html" %}
+
+{% block title %}Creatures With Tag: {{ tag }}{% endblock %}
+
+{% block content %}
+	<h1>Creatures With Tag: {{ tag }}</h1>
+	
+	{% for creature in tagged_items %}
+		<h2><a href="{{ creature.get_absolute_url }}">{{ creature.name }}</a></h2>
+	{% endfor %}
+	
+{% endblock %}
