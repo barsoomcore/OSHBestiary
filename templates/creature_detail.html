@@ -12,7 +12,7 @@
 			font-weight: bold;
 			font-size: 150%
 		}
-		.attributes li .value {font-size:24pt; margin:0 50px 0 28px}
+		.attributes li .value {font-size:24pt; margin:0 50px 0 20px}
 		#left-stat-block {
 			margin-top: 50px;
 		}
@@ -25,12 +25,24 @@
 	<h6>Created by: {{object.owner}}</h6>
 	<p>{{object.description}}</p>
 	<ul class="attributes">
-		{% if object.brawn %}<li><span class="value">{{object.brawn}}</span> Brawn</li>{% endif %}
-		{% if object.cunning %}<li><span class="value">{{object.cunning}}</span>Cunning</li>{% endif %}
-		{% if object.daring %}<li><span class="value">{{object.daring}}</span>Daring</li>{% endif %}
-		{% if object.commitment %}<li><span class="value">{{object.commitment}}</span>Commitment</li>{% endif %}
-		{% if object.charm %}<li><span class="value">{{object.charm}}</span>Charm</li>{% endif %}
-		{% if object.awareness %}<li><span class="value">{{object.awareness}}</span>Awareness</li>{% endif %}
+		{% if object.brawn != None %}
+			<li><span class="value">{% if object.brawn > -1 %}+{% endif %}{{object.brawn}}</span> Brawn</li>
+		{% endif %}
+		{% if object.cunning != None %}
+			<li><span class="value">{% if object.cunning > -1 %}+{% endif %}{{object.cunning}}</span>Cunning</li>
+		{% endif %}
+		{% if object.daring != None %}
+			<li><span class="value">{% if object.daring > -1 %}+{% endif %}{{object.daring}}</span>Daring</li>
+		{% endif %}
+		{% if object.commitment != None %}
+			<li><span class="value">{% if object.commitment > -1 %}+{% endif %}{{object.commitment}}</span>Commitment</li>
+		{% endif %}
+		{% if object.charm != None %}
+			<li><span class="value">{% if object.charm > -1 %}+{% endif %}{{object.charm}}</span>Charm</li>
+		{% endif %}
+		{% if object.awareness != None %}
+			<li><span class="value">{% if object.awareness > -1 %}+{% endif %}{{object.awareness}}</span>Awareness</li>
+		{% endif %}
 	</ul>
 	
 	<div id="left-stat-block">
