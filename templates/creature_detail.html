@@ -3,24 +3,6 @@
 {% load tagging_tags %}
 {% block title %}  {{ object.name }} {% endblock %}
 {% block content %}
-	<style>
-		.attributes {float:left; margin-right:100px}
-		.attributes li {
-			background: url({{ MEDIA_URL}}images/OSHAttributeShield.png) no-repeat;
-			padding: 25px 0 20px 0;
-			list-style-type:none;
-			font-weight: bold;
-			font-size: 150%
-		}
-		.attributes li .value {font-size:24pt; margin:0 50px 0 20px}
-		#left-stat-block {
-			margin-top: 50px;
-		}
-		#sidebar-image {
-			margin-top: 25px;
-			max-width: 225px;
-		}
-	</style>
 	<h1>{{object.name}}</h1>
 	<h6>Created by: {{object.owner}}</h6>
 	<p>{{object.description}}</p>
@@ -52,7 +34,7 @@
 	</div>
 	
 	{% if object.powers.all %}
-		<h2 style="clear:left">Powers:</h2>
+		<h2 id="powers">Powers:</h2>
 		{% for power in object.powers.all %}
 			<h3>{{power.name}} 
 			{% if power.type %}
@@ -69,10 +51,12 @@
 	{% if object.image %}
 		<img src="{{ object.image }}" id="sidebar-image" />
 	{% endif %}
-	<h3>Tags for {{ object.name }}:</h3>
-	{% tags_for_object object as tags %}
-	<p>{% for tag in tags %}
-		<a href="{% url osh-by-tag tag %}">{{ tag }}</a>
-	{% endfor %}</p>
-	<h4><a href="{% url osh-index %}">Back to the Bestiary Index</a></h4>
+	<div id="tag_list">
+		<h3>Tags for {{ object.name }}:</h3>
+		{% tags_for_object object as tags %}
+		<p>{% for tag in tags %}
+			<a href="{% url osh-by-tag tag %}">{{ tag }}</a>
+		{% endfor %}</p>
+	</div>
+	<h4 id="index_link"><a href="{% url osh-index %}">Back to the Bestiary Index</a></h4>
 {% endblock %}

@@ -6,6 +6,29 @@
 		<title>Old School Hack Bestiary: {% block title %}{% endblock %}</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="http://www.oldschoolhack.net/wp-content/themes/clean-home/style.css" />
 		<link rel="icon" type="image/png" href="{{ MEDIA_URL }}osh_favicon.png" />
+		<style>
+			.attributes {float:left; margin-right:100px}
+			.attributes li {
+				background: url({{ MEDIA_URL}}images/OSHAttributeShield.png) no-repeat;
+				padding: 25px 0 20px 0;
+				list-style-type:none;
+				font-weight: bold;
+				font-size: 150%
+			}
+			.attributes li .value {font-size:24pt; margin:0 50px 0 20px}
+			#left-stat-block {
+				margin-top: 50px;
+			}
+			#sidebar-image {
+				margin-top: 25px;
+				max-width: 225px;
+			}
+			#powers { margin-top: 50px }
+			@media print {
+				#wrapper { font-size: 75% }
+				#header { display:none }
+				#sidebar { display:none }
+		</style>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -28,7 +51,7 @@
 			{% block sidebar %}{% endblock %}
 			</div>
 			<div id="footer">
-				<p>All creatures posted on this site are released under the <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution Non-Commercial License</a>.<br />The images are NOT, however, and are linked from other sites around the nets. If you object to an image appearing here, let me know.</p>
+				<p>All creatures in this bestiary are released under the <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution Non-Commercial License</a>.<br />The images are NOT, however, and are linked from other sites around the nets. If you object to an image appearing here, let me know.</p>
 				<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/" style="border:none">
 					<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" />
 				</a>
