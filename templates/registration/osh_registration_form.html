@@ -1,0 +1,29 @@
+{% extends "oshbestiary_base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+	<h1>Create an account</h1>
+	<form action="." method="post" id="register">
+		{% if form.errors %}
+			<p class="error">Please correct the errors below.</p>
+		{% endif %}
+
+		{{ form.username.errors }}
+		<p><label for="id_username">Username:</label> {{ form.username }}</p>
+        
+		{{ form.email.errors }}
+		<p><label for="id_email">Email:</label> {{ form.email }}</p>
+
+		{{ form.password1.errors }}
+		<p><label for="id_password1">Password:</label> {{ form.password1 }}</p>
+
+		{{ field.password2.errors }}
+		<p><label for="id_password2">Password (again):</label> {{ form.password2 }}</p>
+
+		<input type="submit" value="Create the account" />
+	</form>
+	<script language="JavaScript"> document.forms[3].username.focus();</script>
+	
+	<h3><a href="{% url osh_login %}">Or sign in if you already have an account.</a></h3>
+{% endblock %}

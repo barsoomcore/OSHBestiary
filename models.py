@@ -10,7 +10,7 @@ from autoslug.fields import AutoSlugField
 class Power(models.Model):
 	name = models.CharField(max_length=100)
 	slug = AutoSlugField(populate_from='name', unique=True, editable=False)
-	owner = models.ForeignKey(User)
+	owner = models.ForeignKey(User, editable=False)
 	description = models.TextField()
 	tags = TagField(blank=True)
 	
@@ -20,8 +20,8 @@ class Power(models.Model):
 		('Rested', 'Rested'),
 	)
 	
-	type = models.CharField(blank=True, max_length=20, choices=POWER_TYPES)
-	focused = models.BooleanField()
+	type = models.CharField(max_length=20, choices=POWER_TYPES)
+	focused = models.BooleanField(default=False)
 	
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
@@ -31,7 +31,7 @@ class Power(models.Model):
 	
 	@permalink
 	def get_absolute_url(self):
-		return('power-detail', (), {'slug': self.slug})
+		return('osh-power-detail', (), {'slug': self.slug})
 	
 	def __unicode__(self):
 		return u'%s' % (self.name)
@@ -39,7 +39,7 @@ class Power(models.Model):
 class Creature(models.Model):
 	name = models.CharField(max_length=100)
 	slug = AutoSlugField(populate_from='name', unique=True, editable=False)
-	owner = models.ForeignKey(User)
+	owner = models.ForeignKey(User, editable=False)
 	description = models.TextField()
 	tags = TagField(blank=True)
 	
@@ -70,6 +70,10 @@ class Creature(models.Model):
 	
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
+	
+	def save(self, owner, *args, **kwargs):
+		self.owner = owner
+		super(Creature, self).save(*args, **kwargs)
 	
 	@permalink
 	def get_absolute_url(self):

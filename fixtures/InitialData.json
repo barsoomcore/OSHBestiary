@@ -1,1 +1,117 @@
-[{"pk": 2, "model": "oshbestiary.power", "fields": {"description": "The Gorilla King's presence is overpowering and causes all in the same arena to suffer a -2 penalty to all Daring and Commitment checks.", "tags": "", "created": "2011-04-14 18:15:09", "modified": "2011-04-14 18:15:09", "focused": false, "owner": 1, "type": "Constant", "slug": "aura-of-awesome", "name": "Aura of Awesome"}}, {"pk": 3, "model": "oshbestiary.power", "fields": {"description": "By pounding on his chest and roaring, the Gorilla King presents a formidable and terrifying opponent, all opponents in the same arena must make a successful check vs Commitment with an additional (see above) -2. Failure forces the character to spend the next round attempting to flee the arena (must spend the next turn performing a Move to leave the arena). As an added bonus, the roar will call d6 Royal Guards (minions) to come to the Gorilla King's aid, they arrive in three rounds.", "tags": "", "created": "2011-04-14 18:15:42", "modified": "2011-04-14 18:15:42", "focused": false, "owner": 1, "type": "Per-Arena", "slug": "chest-thump", "name": "Chest Thump"}}, {"pk": 5, "model": "oshbestiary.power", "fields": {"description": "The Gorilla King is a surprisingly knowledgable fellow and will know a single important fact about any topic the players might ask it. This can relate to unknown secrets or places or persons, forgotten lore, and any other adventure aiding topic the players inquire about.", "tags": "", "created": "2011-04-14 18:16:30", "modified": "2011-04-14 18:16:30", "focused": false, "owner": 1, "type": "Constant", "slug": "gentlemens-intellect", "name": "Gentlemen's Intellect"}}, {"pk": 4, "model": "oshbestiary.power", "fields": {"description": "With his massive arms and strength, the Gorilla King can smash an opponent, causing them to be stunned and unable to perform an Attack or Move action if they have no acted thus far in the round. Additionally, they will be unable to perform those actions the following round.", "tags": "", "created": "2011-04-14 18:16:07", "modified": "2011-04-14 18:16:07", "focused": false, "owner": 1, "type": "Per-Arena", "slug": "massive-bash", "name": "Massive Bash"}}, {"pk": 6, "model": "oshbestiary.power", "fields": {"description": "The staff the King carries allows him to effectively steal one talent from any person within his arena. Counts as his attack for that round and requires a normal to hit roll. When he steals the talent a bright bluish glow emanates from the gem at the top and flows out to the target. The target will instantly lose on hit point and lose the use of the selected talent for the rest of the encounter. The King will have access to this talent immediately and be able to use it once.", "tags": "", "created": "2011-04-14 18:17:06", "modified": "2011-04-14 18:17:06", "focused": false, "owner": 1, "type": "Per-Arena", "slug": "rod-of-empowerment", "name": "Rod of Empowerment"}}, {"pk": 7, "model": "oshbestiary.power", "fields": {"description": "An enemy in an adjacent square is moved into your own.", "tags": "", "created": "2011-04-18 07:29:51", "modified": "2011-04-18 18:04:22", "focused": true, "owner": 27, "type": "Per-Arena", "slug": "snare", "name": "Snare"}}, {"pk": 8, "model": "oshbestiary.power", "fields": {"description": "When you roll a face die on an attack, the arena becomes Dense with logs, ropes and branches.", "tags": "", "created": "2011-04-18 07:31:31", "modified": "2011-04-18 18:04:32", "focused": false, "owner": 27, "type": "", "slug": "the-broken-ground", "name": "The Broken Ground"}}, {"pk": 2, "model": "oshbestiary.creature", "fields": {"AC": 12, "description": "The Gorilla King sits upon his throne, deep within the jungle. His kingdom controls a large portion of the western jungle of Chuth. He is an intelligent and resourceful fellow, he will be kind but distrusting of any visitors to his kingdom. He surrounds himself with a gaggle of lower ape followers (treat as minions) and at any one time will have d4 special guards (guards with 3 hit points and a shield) to protect him.", "tags": "monkey, king, bad guy", "daring": null, "weapon": "", "brawn": null, "commitment": null, "created": "2011-04-14 18:15:14", "charm": null, "modified": "2011-04-14 18:17:07", "owner": 1, "hit_points": 7, "cunning": null, "powers": [2, 3, 5, 4, 6], "slug": "the-gorilla-king", "awareness": null, "name": "The Gorilla King"}}, {"pk": 3, "model": "oshbestiary.creature", "fields": {"AC": 14, "description": "When a murderer of children escapes his rightful hanging, a noose falls from the gallows upon the full moon. Out of it slides an unearthly child sticky with membrane.\r\n\r\nThat child is a Gallow's Boy and though it may be raised as a normal child always it seeks to bring the murderer to justice.", "tags": "freaky-big", "daring": 2, "weapon": "Heavy", "brawn": 4, "commitment": null, "created": "2011-04-18 07:31:34", "charm": null, "modified": "2011-04-18 18:04:01", "owner": 27, "hit_points": 15, "cunning": -2, "powers": [7, 8], "slug": "gallows-boy", "awareness": null, "name": "Gallow's Boy"}}]
+[
+{"pk": 2, "model": "oshbestiary.power", "fields": 
+	{"description": "The Gorilla King's presence is overpowering and causes all in the same arena to suffer a -2 penalty to all Daring and Commitment checks.", 
+	"tags": "", 
+	"created": "2011-04-14 18:15:09", 
+	"modified": "2011-04-14 18:15:09", 
+	"focused": false, 
+	"owner": 1, 
+	"type": "Constant", 
+	"slug": "aura-of-awesome", 
+	"name": "Aura of Awesome"}
+}, 
+{"pk": 3, "model": "oshbestiary.power", "fields": 
+	{"description": "By pounding on his chest and roaring, the Gorilla King presents a formidable and terrifying opponent, all opponents in the same arena must make a successful check vs Commitment with an additional (see above) -2. Failure forces the character to spend the next round attempting to flee the arena (must spend the next turn performing a Move to leave the arena). As an added bonus, the roar will call d6 Royal Guards (minions) to come to the Gorilla King's aid, they arrive in three rounds.", 
+	"tags": "", 
+	"created": "2011-04-14 18:15:42", 
+	"modified": "2011-04-14 18:15:42", 
+	"focused": false, 
+	"owner": 1, 
+	"type": "Per-Arena", 
+	"slug": "chest-thump", 
+	"name": "Chest Thump"}
+}, 
+{"pk": 5, "model": "oshbestiary.power", "fields": 
+	{"description": "The Gorilla King is a surprisingly knowledgable fellow and will know a single important fact about any topic the players might ask it. This can relate to unknown secrets or places or persons, forgotten lore, and any other adventure aiding topic the players inquire about.", 
+	"tags": "", 
+	"created": "2011-04-14 18:16:30", 
+	"modified": "2011-04-14 18:16:30", 
+	"focused": false, 
+	"owner": 1, 
+	"type": "Constant", 
+	"slug": "gentlemens-intellect", 
+	"name": "Gentlemen's Intellect"}
+}, 
+{"pk": 4, "model": "oshbestiary.power", "fields": 
+	{"description": "With his massive arms and strength, the Gorilla King can smash an opponent, causing them to be stunned and unable to perform an Attack or Move action if they have no acted thus far in the round. Additionally, they will be unable to perform those actions the following round.", 
+	"tags": "", 
+	"created": "2011-04-14 18:16:07", 
+	"modified": "2011-04-14 18:16:07", 
+	"focused": false, 
+	"owner": 1, 
+	"type": "Per-Arena", 
+	"slug": "massive-bash", 
+	"name": "Massive Bash"}
+}, 
+{"pk": 6, "model": "oshbestiary.power", "fields": 
+	{"description": "The staff the King carries allows him to effectively steal one talent from any person within his arena. Counts as his attack for that round and requires a normal to hit roll. When he steals the talent a bright bluish glow emanates from the gem at the top and flows out to the target. The target will instantly lose on hit point and lose the use of the selected talent for the rest of the encounter. The King will have access to this talent immediately and be able to use it once.", 
+	"tags": "", 
+	"created": "2011-04-14 18:17:06", 
+	"modified": "2011-04-14 18:17:06", 
+	"focused": false, 
+	"owner": 1, 
+	"type": "Per-Arena", 
+	"slug": "rod-of-empowerment", 
+	"name": "Rod of Empowerment"}
+}, 
+{"pk": 7, "model": "oshbestiary.power", "fields": 
+	{"description": "An enemy in an adjacent square is moved into your own.", 
+	"tags": "", 
+	"created": "2011-04-18 07:29:51", 
+	"modified": "2011-04-18 18:04:22", 
+	"focused": true, 
+	"owner": 27, 
+	"type": "Per-Arena", 
+	"slug": "snare", 
+	"name": "Snare"}
+}, 
+	{"pk": 8, "model": "oshbestiary.power", "fields": 
+	{"description": "When you roll a face die on an attack, the arena becomes Dense with logs, ropes and branches.", 
+	"tags": "", 
+	"created": "2011-04-18 07:31:31", 
+	"modified": "2011-04-18 18:04:32", 
+	"focused": false, 
+	"owner": 27, 
+	"type": "Per-Arena", 
+	"slug": "the-broken-ground", 
+	"name": "The Broken Ground"}
+}, 
+{"pk": 2, "model": "oshbestiary.creature", "fields": 
+	{"name": "The Gorilla King", 
+	"description": "The Gorilla King sits upon his throne, deep within the jungle. His kingdom controls a large portion of the western jungle of Chuth. He is an intelligent and resourceful fellow, he will be kind but distrusting of any visitors to his kingdom. He surrounds himself with a gaggle of lower ape followers (treat as minions) and at any one time will have d4 special guards (guards with 3 hit points and a shield) to protect him.",
+	"AC": 12, 
+	"hit_points": 7, 
+	"brawn": null, 
+	"daring": null, 
+	"cunning": null, 
+	"charm": null, 
+	"awareness": null, 
+	"commitment": null, 
+	"weapon": "", 
+	"created": "2011-04-14 18:15:14", 
+	"modified": "2011-04-14 18:17:07", 
+	"owner": 1, 
+	"powers": [2, 3, 5, 4, 6],
+	"tags": "monkey, king, bad guy", 
+	"slug": "the-gorilla-king"}
+}, 
+{"pk": 3, "model": "oshbestiary.creature", "fields": 
+	{"name": "Gallow's Boy",
+	"description": "When a murderer of children escapes his rightful hanging, a noose falls from the gallows upon the full moon. Out of it slides an unearthly child sticky with membrane.\r\n\r\nThat child is a Gallow's Boy and though it may be raised as a normal child always it seeks to bring the murderer to justice.",
+	"AC": 14, 
+	"hit_points": 15, 
+	"brawn": 4, 
+	"daring": 2, 
+	"cunning": -2, 
+	"charm": null, 
+	"awareness": null, 
+	"commitment": null, 
+	"weapon": "Heavy", 
+	"created": "2011-04-18 07:31:34", 
+	"modified": "2011-04-18 18:04:01", 
+	"owner": 1, 
+	"powers": [7, 8], 
+	"tags": "freaky-big", 
+	"slug": "gallows-boy" 
+	}
+}]

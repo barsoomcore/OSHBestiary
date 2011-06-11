@@ -1,0 +1,50 @@
+{% extends "templates/oshbestiary_base.html" %}
+{% block title %}  {{ creature.name }} {% endblock %}
+{% block content %}
+
+<form action="" method="post">
+	<style>
+		fieldset { border:none }
+		fieldset label { display: block; font-weight: bold }
+		#top { vertical-align: top; padding-bottom: 25px }
+		#top #id_name { width: 100% }
+		#top textarea { width:100% }
+		#top .errorlist { list-style-type: none; color: red; margin: 0 5px 0 0; padding: 0 0 0 0; float:left }
+		#top #AC_hp #AC { float: left }
+		#top #AC_hp #hit_points { float: left }
+		#top label { float:left; margin-right: 5px }
+		#top #AC_hp input { width: 25px; margin-right: 15px }
+		#top #id_owner { float:right }
+		#left {float:left; width:50%}
+		#left input { float:left; width: 25px; margin-right: 5px }
+		#left label { height:3em }
+		#right label {float:left; width: 100px }
+	</style>
+	<fieldset id="top">
+		{{form.name.label_tag }} {{form.name.errors}}{{ form.name }}
+		{{form.description.label_tag }}{{form.description.errors}}{{ form.description }}
+		<div id="AC_hp">
+			<div id="AC">{{form.AC.label_tag }}{{form.AC.errors}}{{ form.AC }}</div>
+			<div id="hit_points">{{form.hit_points.label_tag }}{{form.hit_points.errors}}{{ form.hit_points }}</div>
+			
+		</div>
+		{{form.owner}}
+	</fieldset>
+	<fieldset id="left" >
+		{{ form.brawn }}{{form.brawn.label_tag }}
+		{{ form.daring }}{{form.daring.label_tag }}
+		{{ form.cunning }}{{form.cunning.label_tag }}
+		{{ form.awareness }}{{form.awareness.label_tag }}
+		{{ form.charm }}{{form.charm.label_tag }}
+		{{ form.commitment }}{{form.commitment.label_tag }}
+	</fieldset>
+	<fieldset id="right">
+		{{form.weapon.label_tag }}{{ form.weapon }}
+		{{form.powers.label_tag }}{{ form.powers }}
+		{{form.image.label_tag }}{{form.image.errors}}{{ form.image }}
+		{{form.tags.label_tag }}{{ form.tags }}
+	</fieldset>
+	<input type="submit" value="Save" />
+</form>
+
+{% endblock %}

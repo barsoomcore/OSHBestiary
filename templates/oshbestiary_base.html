@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="http://www.oldschoolhack.net/wp-content/themes/clean-home/style.css" />
 		<link rel="icon" type="image/png" href="{{ MEDIA_URL }}osh_favicon.png" />
 		<style>
+			#edit { float:right; padding-right: 5px }
 			.attributes {float:left; margin-right:100px}
 			.attributes li {
 				background: url({{ MEDIA_URL}}images/OSHAttributeShield.png) no-repeat;
@@ -24,6 +25,7 @@
 				max-width: 225px;
 			}
 			#powers { margin-top: 50px }
+			.power_icon { float: left; margin-top: -0.4em; padding-right:5px }
 			@media print {
 				#wrapper { font-size: 75% }
 				#header { display:none }
@@ -55,6 +57,8 @@
 				<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/" style="border:none">
 					<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" />
 				</a>
+				<p><a href="{% url osh_login %}">Login!</a></p>
+				<p><a href="{% url create_creature %}">Create a beastie!</a></p>
 			</div>
 		</div>
 	</body>
