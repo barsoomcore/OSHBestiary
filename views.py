@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.views.generic import create_update
 
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 from tagging.models import Tag, TaggedItem
 
@@ -46,7 +47,7 @@ def register(request):
 		context_instance=RequestContext(request)
 	)
 
-
+@login_required
 def update_creature(request, slug=None):
 	try:
 		creature = Creature.objects.get(slug__exact=slug)
