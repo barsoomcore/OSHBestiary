@@ -38,7 +38,7 @@ def register(request):
 			user = authenticate(username=new_user.username, password=form.cleaned_data['password1'])
 			if user is not None:
 				login(request, user)
-			return HttpResponseRedirect(reverse('osh_index'))
+			return HttpResponseRedirect(reverse('osh-index'))
 	else: form = UserCreationFormExtended()
 		
 	return render_to_response(
