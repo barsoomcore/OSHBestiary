@@ -16,8 +16,7 @@ class CreatureForm(forms.ModelForm):
 class UserCreationFormExtended(UserCreationForm):
 
 	def __init__(self, *args, **kwargs):
-		super(UserCreationFormExtended, self).__init__(*args,
-			**kwargs)
+		super(UserCreationFormExtended, self).__init__(*args, **kwargs)
 		self.fields['email'].required = True
 
 	class Meta:

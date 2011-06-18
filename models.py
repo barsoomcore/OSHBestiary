@@ -71,10 +71,6 @@ class Creature(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
 	
-	def save(self, owner, *args, **kwargs):
-		self.owner = owner
-		super(Creature, self).save(*args, **kwargs)
-	
 	@permalink
 	def get_absolute_url(self):
 		return('osh-creature-detail', (), {'slug': self.slug})
