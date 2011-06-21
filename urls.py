@@ -10,8 +10,6 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('oshbestiary.views',
 	url(r'^tag/(?P<tag>.*)/$', 'by_tag', name='osh-by-tag'),
-	url(r'^create-creature/$', 'update_creature', name='create_creature'),
-	url(r'^update-creature/(?P<slug>[-\w]+)/$', 'update_creature', name='update_creature'),
 )
 
 urlpatterns += patterns('django.views.generic.list_detail',
