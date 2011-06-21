@@ -1,0 +1,62 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}
+	Old School Hack: Change History {{ original|truncatewords:"18" }}
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+	<link rel="stylesheet" type="text/css" media="screen" href="http://www.oldschoolhack.net/wp-content/themes/clean-home/style.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ MEDIA_URL}}oshbestiaryadminStyle.css" />
+{% endblock %}
+
+{% block branding %}
+	<img src="{{ MEDIA_URL }}banners/OSH_WebTitle.png" style="padding-top:5px" />
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+	<div id="blurb">
+		{% if user.is_superuser %}
+		<a href="../../../../">{% trans 'Home' %}</a> &rsaquo; 
+		{% else %}
+		<a href="{% url osh-index %}">Home</a> &rsaquo; 
+		{% endif %}
+		<a href="../../../">Admin</a> &rsaquo; 
+		<a href="../../">{{ module_name }}</a> &rsaquo; 
+		<a href="../">{{ object|truncatewords:"18" }}</a> &rsaquo; 
+		{% trans 'History' %}
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+<div class="module">
+
+{% if action_list %}
+    <table id="change-history">
+        <thead>
+        <tr>
+            <th scope="col">{% trans 'Date/time' %}</th>
+            <th scope="col">{% trans 'User' %}</th>
+            <th scope="col">{% trans 'Action' %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for action in action_list %}
+        <tr>
+            <th scope="row">{{ action.action_time|date:"DATETIME_FORMAT" }}</th>
+            <td>{{ action.user.username }}{% if action.user.get_full_name %} ({{ action.user.get_full_name }}){% endif %}</td>
+            <td>{{ action.change_message }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>{% trans "This object doesn't have a change history. It probably wasn't added via this admin site." %}</p>
+{% endif %}
+</div>
+</div>
+{% endblock %}

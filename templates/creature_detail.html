@@ -3,7 +3,7 @@
 {% load tagging_tags %}
 {% block title %}  {{ object.name }} {% endblock %}
 {% block content %}
-	<h6 id="edit"><a href="{% url update_creature slug=object.slug %}">edit</a></h6>
+	<h6 id="edit"><a href="{% url admin:oshbestiary_creature_change object.id %}">edit</a></h6>
 	<h1>{{object.name}}</h1>
 	<h6>Created by: {{object.owner}}</h6>
 	<p>{{object.description}}</p>

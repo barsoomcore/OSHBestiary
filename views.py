@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.views.generic import create_update
 
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 
 from tagging.models import Tag, TaggedItem
@@ -37,6 +38,9 @@ def register(request):
 			new_user = form.save()			
 			user = authenticate(username=new_user.username, password=form.cleaned_data['password1'])
 			if user is not None:
+				bestiary_group = Group.objects.get(name='Bestiary Users')
+				user.groups.add(bestiary_group)
+				user.is_staff = True
 				login(request, user)
 			return HttpResponseRedirect(reverse('osh-index'))
 	else: form = UserCreationFormExtended()

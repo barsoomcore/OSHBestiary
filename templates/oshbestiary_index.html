@@ -16,7 +16,7 @@
 	<p>There's a chance this will turn into a whole thing. You can readily get access to create new and exciting creatures just by emailing 'barsoomcore' (hint: he lives at GMail) (he also hangs out at <a href="http://forums.oldschoolhack.net">Old School Hack forums</a>.</p>
 	
 	{% if user.is_authenticated %}
-		<p>Get started: <a href="{% url create_creature %}">Create a beastie!</a></p>
+		<p>Get started: <a href="{% url admin:oshbestiary_creature_add %}">Create a beastie!</a></p>
 	{% else %}
 		<p><a href="{% url osh_login %}">Login!</a></p>
 	{% endif %}
