@@ -50,32 +50,3 @@ def register(request):
 		{ 'form' : form }, 
 		context_instance=RequestContext(request)
 	)
-
-@login_required
-def update_creature(request, slug=None):
-	try:
-		creature = Creature.objects.get(slug__exact=slug)
-		owner = creature.owner
-	except Creature.DoesNotExist:
-		creature = None
-		
-	if request.method == 'POST':
-		form = CreatureForm(request.POST, instance=creature)
-		if form.is_valid():
-			creature = form.save(commit=False)
-			if slug == None:
-				owner = request.user
-			creature.save(owner=owner)
-			return HttpResponseRedirect(creature.get_absolute_url())
-	
-	else:
-		if creature:
-			form = CreatureForm(instance=creature)
-		else:
-			form = CreatureForm(instance=creature, initial={'owner':request.user})
-		
-	return render_to_response(
-		'templates/creature_form.html', 
-		locals(), 
-		context_instance=RequestContext(request)
-	)
