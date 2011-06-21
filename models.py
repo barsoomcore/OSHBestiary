@@ -15,10 +15,10 @@ class Power(models.Model):
 	tags = TagField(blank=True)
 	
 	POWER_TYPES = (
-		('0 Awesome Points', '0 Awesome Points'),
-		('1 Awesome Point', '1 Awesome Point'),
-		('2 Awesome Points', '2 Awesome Points'),
-		('3 Awesome Points', '3 Awesome Points'),
+		('0', '0 Awesome Points'),
+		('1', '1 Awesome Point'),
+		('2', '2 Awesome Points'),
+		('3', '3 Awesome Points'),
 	)
 	
 	type = models.CharField(max_length=20, choices=POWER_TYPES)
