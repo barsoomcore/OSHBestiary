@@ -11,6 +11,15 @@
 	<h6>Created by: {{object.owner}}</h6>
 	<p>{{object.description|markdown}}</p>
 	<ul class="attributes">
+		<style>
+			.attributes li {
+				background: url({{ MEDIA_URL }}images/OSHAttributeShield.png) no-repeat;
+				padding: 25px 0 20px 0;
+				list-style-type:none;
+				font-weight: bold;
+				font-size: 150%;
+			}
+		</style>
 		{% if object.brawn != None %}
 			<li><span class="value">{% if object.brawn > -1 %}+{% endif %}{{object.brawn}}</span> Brawn</li>
 		{% endif %}
