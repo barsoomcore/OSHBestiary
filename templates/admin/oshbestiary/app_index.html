@@ -12,7 +12,16 @@
 {% if not is_popup %}
 
 {% block branding %}
-	<img src="{{ MEDIA_URL }}banners/OSH_WebTitle.png" style="padding-top:5px" />
+	<div id="logo">
+		<a href="/oshbestiary/">
+			<img src="{{ MEDIA_URL }}banners/OSH_bestiary.png" style="padding-top:5px">
+		</a>
+	</div>
+	<div id="osh-home" style="float:right">
+		<a href="http://www.oldschoolhack.net" style="border:none">
+			<img src="{{ MEDIA_URL }}banners/OSH_WebTitle.png" />
+		</a>
+	</div>
 {% endblock %}
 
 {% block breadcrumbs %}
