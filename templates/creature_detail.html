@@ -1,12 +1,15 @@
 {% extends "templates/oshbestiary_base.html" %}
 {% load taggingextras %}
 {% load tagging_tags %}
+{% load filter_extras %}
+{% load markup %}
+
 {% block title %}  {{ object.name }} {% endblock %}
 {% block content %}
 	<h6 id="edit"><a href="{% url admin:oshbestiary_creature_change object.id %}">edit</a></h6>
 	<h1>{{object.name}}</h1>
 	<h6>Created by: {{object.owner}}</h6>
-	<p>{{object.description}}</p>
+	<p>{{object.description|markdown}}</p>
 	<ul class="attributes">
 		{% if object.brawn != None %}
 			<li><span class="value">{% if object.brawn > -1 %}+{% endif %}{{object.brawn}}</span> Brawn</li>
@@ -36,22 +39,21 @@
 	
 	{% if object.powers.all %}
 		<h2 id="powers">Powers:</h2>
+		<div id="powers_note">
+			<p><img src="{{ MEDIA_URL }}/buttons/OSH_Awesome_Note.png" /> Add this many Awesome Points to the Bowl</p>
+			<p><img src="{{ MEDIA_URL }}/buttons/OSH_Focused_Note.png" /> Using this power requires the creature to <strong>Focus</strong></o>
+		</div>
 		{% for power in object.powers.all %}
-			<img src="{{ MEDIA_URL }}/buttons/OSH_{{ power.type }}_Icon.png" class="power_icon" />
-			{% if power.focused %}
-				<img src="{{ MEDIA_URL }}/buttons/OSH_Focused_Icon.png" class="power_icon" />
-			{% endif %}
 			<h3>
+				{% for i in power.type|get_range %}
+					<img src="{{ MEDIA_URL}}/buttons/OSH_Awesome_Icon.png" class="power_icon" />
+				{% endfor %}
 			{{power.name}} 
-			{% if power.type %}
-				<span style="font-weight:normal; font-size: 75%">( {{power.type}}
-				{% if power.focused %}
-					, Focused
-				{% endif %}
-				)</span>
+			{% if power.focused %}
+				<img src="{{ MEDIA_URL }}/buttons/OSH_Focused_Icon.png" class="power_icon" style="margin-left: 10px" />
 			{% endif %}
 			</h3>
-			<p>{{power.description}}</p>
+			{{power.description|markdown}}
 		{% endfor %}
 	{% endif %}
 {% endblock %}
