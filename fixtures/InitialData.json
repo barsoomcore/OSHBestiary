@@ -6,7 +6,7 @@
 	"modified": "2011-04-14 18:15:09", 
 	"focused": false, 
 	"owner": 1, 
-	"type": "Constant", 
+	"type": "0", 
 	"slug": "aura-of-awesome", 
 	"name": "Aura of Awesome"}
 }, 
@@ -17,7 +17,7 @@
 	"modified": "2011-04-14 18:15:42", 
 	"focused": false, 
 	"owner": 1, 
-	"type": "Per-Arena", 
+	"type": "1", 
 	"slug": "chest-thump", 
 	"name": "Chest Thump"}
 }, 
@@ -28,7 +28,7 @@
 	"modified": "2011-04-14 18:16:30", 
 	"focused": false, 
 	"owner": 1, 
-	"type": "Constant", 
+	"type": "0", 
 	"slug": "gentlemens-intellect", 
 	"name": "Gentlemen's Intellect"}
 }, 
@@ -39,7 +39,7 @@
 	"modified": "2011-04-14 18:16:07", 
 	"focused": false, 
 	"owner": 1, 
-	"type": "Per-Arena", 
+	"type": "2", 
 	"slug": "massive-bash", 
 	"name": "Massive Bash"}
 }, 
@@ -48,9 +48,9 @@
 	"tags": "", 
 	"created": "2011-04-14 18:17:06", 
 	"modified": "2011-04-14 18:17:06", 
-	"focused": false, 
+	"focused": true, 
 	"owner": 1, 
-	"type": "Per-Arena", 
+	"type": "3", 
 	"slug": "rod-of-empowerment", 
 	"name": "Rod of Empowerment"}
 }, 
@@ -61,7 +61,7 @@
 	"modified": "2011-04-18 18:04:22", 
 	"focused": true, 
 	"owner": 27, 
-	"type": "Per-Arena", 
+	"type": "1", 
 	"slug": "snare", 
 	"name": "Snare"}
 }, 
@@ -72,7 +72,7 @@
 	"modified": "2011-04-18 18:04:32", 
 	"focused": false, 
 	"owner": 27, 
-	"type": "Per-Arena", 
+	"type": "0", 
 	"slug": "the-broken-ground", 
 	"name": "The Broken Ground"}
 }, 
