@@ -30,10 +30,6 @@ class Power(models.Model):
 	class Meta:
 		ordering = ['name']
 	
-	@permalink
-	def get_absolute_url(self):
-		return('osh-power-detail', (), {'slug': self.slug})
-	
 	def __unicode__(self):
 		return u'%s' % (self.name)
 
