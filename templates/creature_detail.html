@@ -6,7 +6,13 @@
 
 {% block title %}  {{ object.name }} {% endblock %}
 {% block content %}
-	<h6 id="edit"><a href="{% url admin:oshbestiary_creature_change object.id %}">edit</a></h6>
+	<h6 id="edit">
+		{% if user.is_authenticated %}
+			<a href="{% url admin:oshbestiary_creature_change object.id %}">edit</a>
+		{% else %}
+			<a href="{% url osh_login %}">login</a>
+		{% endif %}
+	</h6>
 	<h1>{{object.name}}</h1>
 	<h6>Created by: {{object.owner}}</h6>
 	<p>{{object.description|markdown}}</p>

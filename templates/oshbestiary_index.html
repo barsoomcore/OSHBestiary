@@ -9,16 +9,20 @@
 {% block content %}
 	<h1>The OLD SCHOOL HACK BESTIARY</h1>
 	
-	<p>An uber-convenient place to find inspiration, share awesomeness, or just grab something you can build tonight's game around. All these creatures/monsters/bad guys will work just fine in your own Old School Hack game!</p>
+	<p>An uber-convenient place to find inspiration, share awesomeness, or just grab something you can build tonight's game around. All these creatures/monsters/bad guys will work just fine in your own <a href="http://www.oldschoolhack.net"><strong>Old School Hack</strong></a> game!</p>
 	
 	<p>Promise.</p>
 	
-	<p>There's a chance this will turn into a whole thing. You can readily get access to create new and exciting creatures just by emailing 'barsoomcore' (hint: he lives at GMail) (he also hangs out at <a href="http://forums.oldschoolhack.net">Old School Hack forums</a>.</p>
+	<p>There's a chance this will turn into a whole thing. 
+		{% if not user.is_authenticated %}
+			You can get started and help out by creating an account and adding your own creations to the list.
+		{% endif %}
+	</p>
 	
 	{% if user.is_authenticated %}
 		<p>Get started: <a href="{% url admin:oshbestiary_creature_add %}">Create a beastie!</a></p>
 	{% else %}
-		<p><a href="{% url osh_login %}">Login!</a></p>
+		<p><a href="{% url osh_login %}">Login!</a> or <a href="{% url osh_register %}">Sign up!</a> to create beasties!</p>
 	{% endif %}
 	
 	
