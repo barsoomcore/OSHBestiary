@@ -45,11 +45,13 @@
 		var name1 = ["Shark", "Death", "Temple", "Demon", "Battle", "Slug", "Monkey", "Desert", "Slime", "Insect", "Cave", "Giant", "Swamp", "Bird", "Hell", "Spirit", "Nightmare", "Spider", "Grave", "Thunder"];
 		var name2 = ["Golem", "Behemoth", "Stalker", "Beast", "God", "Mage", "Lord", "Fiend", "Bees", "Servant", "Slime", "Tyrant", "Knight", "Monkey", "Devourer", "Shark", "Lich", "kin", "Spawn", "Genius"];
 		var attack_adjective = ["Hypnotizing", "Poisonous", "Crushing", "Divine", "Necrotic", "Elemental", "Vengeful", "Shielding", "Ensnaring", "Warding", "Exploding", "Enervating", "Enslaving", "Ichorus", "Love-Kindling", "Hallucinogenic", "Stunning", "Psychic", "Healing", "Terrifying"];
-		var attack = ["Bite", "Breath", "Song", "Gaze", "Venom", "Tentacle", "Claw", "Secrets", "Slime", "Charge", "Frenzy", "Blade", "Blast", "Ninjas", "Aura", "Web", "Spores", "Flatulence", "Spines", "Glyph"];
+		var attack = ["Bite", "Breath", "Song", "Gaze", "Venom", "Tentacles", "Claws", "Secrets", "Slime", "Charge", "Frenzy", "Blades", "Blast", "Ninjas", "Aura", "Webs", "Spores", "Flatulence", "Spines", "Glyphs"];
 	</script>
 	
 	<div id="random_monster">
-		<h4 id="monster_click" style="cursor: pointer">Click to <em>generate</em> a random beastie!</h4>
+		<h2>Random Creature Generator</h2>
+		<h4 id="monster_title">Need quick inspiration?</h4>
+		<h5 id="monster_click" style="cursor: pointer">Click to generate a random beastie!</h5>
 	</div>
 	<script>
 		function getRandomInt(){
@@ -64,7 +66,8 @@
 			var new_name2 = name2[getRandomInt()] + " ";
 			var new_attack_adjective = attack_adjective[getRandomInt()] + " ";
 			var new_attack = attack[getRandomInt()];
-			$(this).html("The " + new_attribute + new_ability + new_type + new_name1 + new_name2 + "with " + new_attack_adjective + new_attack + "<h4>Keep Clicking For More!</h4>");
+			$("#monster_click").html("The " + new_attribute + new_ability + new_type + new_name1 + new_name2 + "with " + new_attack_adjective + new_attack);
+			$("#monster_title").html("Don't like it? Click again!");
 		});
 	</script>
 {% endblock %}
