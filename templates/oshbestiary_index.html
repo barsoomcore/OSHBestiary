@@ -38,36 +38,16 @@
 		{% endfor %}
 	</ul>
 	
-	<script language="javascript">
-		var attribute = ["Abominable", "Cunning", "Oozing", "Hulking", "Twisted", "Daring", "Bloodthirsty", "Menacing", "Honor-Bound", "Persuasive", "Fickle", "Clueless", "Soulless", "Pustulent", "Cowardly", "Foolish", "Zealous", "Slumbering", "Mysterious", "Beautiful"];
-		var ability	= ["Flying", "Invisible", "Wish-Granting", "Far-Seeing", "Wall-Climbing", "Shape-Shifting", "Camouflaged", "Many-Armed", "Gelatinous", "Dimension-Jumping", "Scent-Following", "Leaping", "Demon-Calling", "Laughing", "Fortune-Telling", "Many-Legged", "Dead-Raising", "Magic-Eating", "Illusion-Weaving", "Insubstantial"];
-		var type = ["Undead", "Lesser", "Half", "Elder", "Purple", "Greater", "Eldritch", "Feral", "Dire", "Nocturnal", "Cyclopic", "Dark", "Clockwork", "Draconic", "Elemental", "Incorporeal", "Common", "Aquatic", "Immortal", "Heavenly"];
-		var name1 = ["Shark", "Death", "Temple", "Demon", "Battle", "Slug", "Monkey", "Desert", "Slime", "Insect", "Cave", "Giant", "Swamp", "Bird", "Hell", "Spirit", "Nightmare", "Spider", "Grave", "Thunder"];
-		var name2 = ["Golem", "Behemoth", "Stalker", "Beast", "God", "Mage", "Lord", "Fiend", "Bees", "Servant", "Slime", "Tyrant", "Knight", "Monkey", "Devourer", "Shark", "Lich", "kin", "Spawn", "Genius"];
-		var attack_adjective = ["Hypnotizing", "Poisonous", "Crushing", "Divine", "Necrotic", "Elemental", "Vengeful", "Shielding", "Ensnaring", "Warding", "Exploding", "Enervating", "Enslaving", "Ichorus", "Love-Kindling", "Hallucinogenic", "Stunning", "Psychic", "Healing", "Terrifying"];
-		var attack = ["Bite", "Breath", "Song", "Gaze", "Venom", "Tentacles", "Claws", "Secrets", "Slime", "Charge", "Frenzy", "Blades", "Blast", "Ninjas", "Aura", "Webs", "Spores", "Flatulence", "Spines", "Glyphs"];
-	</script>
-	
 	<div id="random_monster">
 		<h2>Random Creature Generator</h2>
 		<h4 id="monster_title">Need quick inspiration?</h4>
 		<h5 id="monster_click" style="cursor: pointer">Click to generate a random beastie!</h5>
+		<script>
+			$("#monster_click").click(function(){
+				var new_monster = new RandomMonster();
+				new_monster.display("#monster_click");
+				$("#monster_title").html("Don't like it? Click again!");
+			});
+		</script>
 	</div>
-	<script>
-		function getRandomInt(){
-			return Math.floor(Math.random() * (19 - 0 + 1)) + 0;
-		}
-
-		$("#monster_click").click(function () {
-			var new_attribute = attribute[getRandomInt()] + " ";
-			var new_ability = ability[getRandomInt()] + " ";
-			var new_type = type[getRandomInt()] + " ";
-			var new_name1 = name1[getRandomInt()] + " ";
-			var new_name2 = name2[getRandomInt()] + " ";
-			var new_attack_adjective = attack_adjective[getRandomInt()] + " ";
-			var new_attack = attack[getRandomInt()];
-			$("#monster_click").html("The " + new_attribute + new_ability + new_type + new_name1 + new_name2 + "with " + new_attack_adjective + new_attack);
-			$("#monster_title").html("Don't like it? Click again!");
-		});
-	</script>
 {% endblock %}
