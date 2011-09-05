@@ -25,19 +25,6 @@
 		<p><a href="{% url osh_login %}">Login!</a> or <a href="{% url osh_register %}">Sign up!</a> to create beasties!</p>
 	{% endif %}
 	
-	
-{% endblock %}
-{% block sidebar %}
-	<h2>The Creatures</h2>
-	
-	<p>With any luck, this list will get really long and I'll have to do something about that.</p>
-	
-	<ul>
-		{% for creature in creature_list %}
-			<li><strong><a href="{{creature.get_absolute_url}}">{{creature.name}}</a></strong></li>
-		{% endfor %}
-	</ul>
-	
 	<div id="random_monster">
 		<h2>Random Creature Generator</h2>
 		<h4 id="monster_title">Need quick inspiration?</h4>
@@ -50,4 +37,17 @@
 			});
 		</script>
 	</div>
+	
+	
+{% endblock %}
+{% block sidebar %}
+	<h2>The Creatures</h2>
+	
+	<p>With any luck, this list will get really long and I'll have to do something about that.</p>
+	
+	<ul>
+		{% for creature in creature_list %}
+			<li><strong><a href="{{creature.get_absolute_url}}">{{creature.name}}</a></strong></li>
+		{% endfor %}
+	</ul>
 {% endblock %}
