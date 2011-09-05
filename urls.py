@@ -14,7 +14,7 @@ urlpatterns += patterns('oshbestiary.views',
 
 urlpatterns += patterns('django.views.generic.list_detail',
     url(r'^$', 'object_list', { 
-    	'queryset': Creature.objects.all(), 
+    	'queryset': Creature.objects.order_by('name'), 
     	'template_name': 'oshbestiary_index.html',
     	'template_object_name': 'creature',
     	'extra_context': extra_context_blurb},
