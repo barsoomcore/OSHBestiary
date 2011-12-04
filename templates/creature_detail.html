@@ -17,15 +17,6 @@
 	<h6>Created by: {{object.owner}}</h6>
 	<p>{{object.description|markdown}}</p>
 	<ul class="attributes">
-		<style>
-			.attributes li {
-				background: url({{ MEDIA_URL }}images/OSHAttributeShield.png) no-repeat;
-				padding: 25px 0 20px 0;
-				list-style-type:none;
-				font-weight: bold;
-				font-size: 150%;
-			}
-		</style>
 		{% if object.brawn != None %}
 			<li><span class="value">{% if object.brawn > -1 %}+{% endif %}{{object.brawn}}</span> Brawn</li>
 		{% endif %}
@@ -63,17 +54,18 @@
 			<h3>
 				{% for i in power.type|get_range %}
 					<img src="{{ MEDIA_URL}}/buttons/OSH_Awesome_Icon.png" class="power_icon" />
-				{% endfor %}
-			{{power.name}} 
+				{% endfor %} 
 			{% if power.focused %}
-				<img src="{{ MEDIA_URL }}/buttons/OSH_Focused_Icon.png" class="power_icon" style="margin-left: 10px" />
+				<img src="{{ MEDIA_URL }}/buttons/OSH_Focused_Icon.png" class="power_icon focus_icon" />
 			{% endif %}
+			{{power.name}}
 			</h3>
 			{{power.description|markdown}}
 		{% endfor %}
 	{% endif %}
+	</div>
 	
-	<div id="disqus_thread"></div>
+	<div id="disqus_thread">
 	<script type="text/javascript">
 		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 		var disqus_shortname = 'dino-pirates'; // required: replace example with your forum shortname
