@@ -55,9 +55,15 @@
   </ul>
 {% endif %}{% endif %}
 {% endblock %}
-<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form">{% csrf_token %}{% block form_top %}{% endblock %}
+<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form">{% csrf_token %}
+
+{% block form_top %}
+	<p>Remember: when creating a Power, try to keep the description as generic as possible so that other people can use that power in their own creatures.</p>
+{% endblock %}
+
 <div>
 {% if is_popup %}<input type="hidden" name="_popup" value="1" />{% endif %}
+
 {% if save_on_top %}{% submit_row %}{% endif %}
 {% if errors %}
     <p class="errornote">
